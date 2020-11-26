@@ -186,6 +186,9 @@ public class ApiController {
 				sensor.setTempC(Float.valueOf(FORMAT.format(tempC)));
 				sensor.setTempF(Float.valueOf(FORMAT.format(tempF)));
 				sensor.setSerialId(serialId);
+				if (SERIAL_NAME_MAP.get(serialId) == null || SERIAL_NAME_MAP.get(serialId).length()==0) {
+					SERIAL_NAME_MAP.put(serialId, "temp");
+				}
 				sensor.setName(SERIAL_NAME_MAP.get(serialId));
 				logger.info("adding sensor: "+sensor);
 				sensors.add(sensor);
@@ -208,6 +211,7 @@ public class ApiController {
 		final String line = FileUtils.readLines(new File(location)).get(0);
 		//final String tempEqual = line.split(" ")[9];
 		//final int temp = Integer.parseInt(tempEqual.substring(2));
+		logger.info("read: "+line);
 		final int temp = Integer.parseInt(line);
 		return temp / 1000f;
 	}
