@@ -91,6 +91,16 @@ public class ApiController {
         return sb.toString();
     }
 
+	@RequestMapping(value = "", method = RequestMethod.GET)
+	public @ResponseBody String test() throws Exception {
+		return "Service is Up!";
+	}
+	
+	@RequestMapping(value = "/listAll", method = RequestMethod.GET)
+	public @ResponseBody Map<String, String> listAll() throws Exception {
+		return SERIAL_NAME_MAP;
+	}
+	
 	/**
 	 * Lists all of the {@link Sensor}s that have been read with the provided name.
 	 * 
