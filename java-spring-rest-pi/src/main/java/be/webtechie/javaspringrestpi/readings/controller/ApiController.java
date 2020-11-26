@@ -172,15 +172,7 @@ public class ApiController {
 				final String filename = file.getName();
 				logger.info("* filename: "+filename+" *");
 
-				if ("subsystem".equals(filename)) {
-					continue;
-				}
-
-				if ("driver".equals(filename)) {
-					continue;
-				}
-
-				if ("power".equals(filename)) {
+				if (!"temp".equals(filename)) {
 					continue;
 				}
 
