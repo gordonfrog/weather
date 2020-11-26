@@ -1,13 +1,8 @@
 package station.sensor;
 
-import com.pi4j.io.i2c.I2CBus;
-import com.pi4j.io.i2c.I2CDevice;
-import com.pi4j.io.i2c.I2CFactory;
-
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.stereotype.Service;
 import reading.Reading;
 import reading.ReadingUnits;
@@ -29,12 +24,12 @@ public class TemperatureHumiditySensor implements Sensor {
     private static final String TEMPERATURE_READING_NAME = "Temperature";
 
 
-    private static final byte DEVICE_I2C_ADDR = 0x40;  //SHT020 I2C address is 0x40
+    //private static final byte DEVICE_I2C_ADDR = 0x40;  //SHT020 I2C address is 0x40
 
-    public TemperatureHumiditySensor() throws IOException, I2CFactory.UnsupportedBusNumberException {
-        //I2CBus bus = I2CFactory.getInstance(I2CBus.BUS_1);
-        //i2CDevice = bus.getDevice(DEVICE_I2C_ADDR);
-    }
+//    public TemperatureHumiditySensor() throws IOException, I2CFactory.UnsupportedBusNumberException {
+//        I2CBus bus = I2CFactory.getInstance(I2CBus.BUS_1);
+//        i2CDevice = bus.getDevice(DEVICE_I2C_ADDR);
+//    }
 
     @Override
     public List<Reading> read() {
@@ -112,11 +107,11 @@ public class TemperatureHumiditySensor implements Sensor {
 //        return (((((data[0] & 0xFF) * 256.0) + (data[1] & 0xFF)) * 125.0) / 65536.0) - 6;
 //    }
 
-    private void sleep(){
-        try {
-            Thread.sleep(500);
-        }catch (InterruptedException e){
-            logger.error("Exception while sleeping", e);
-        }
-    }
+//    private void sleep(){
+//        try {
+//            Thread.sleep(500);
+//        }catch (InterruptedException e){
+//            logger.error("Exception while sleeping", e);
+//        }
+//    }
 }

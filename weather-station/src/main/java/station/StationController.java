@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import reading.Reading;
-import station.sendservice.SendService;
 
 @RestController
 public class StationController {
@@ -18,8 +17,8 @@ public class StationController {
     @Autowired
     private Station station;
 
-    @Autowired
-    private SendService sendService;
+//    @Autowired
+//    private SendService sendService;
     
     @GetMapping("/station")
     public List<Reading> retrieveAllSensors() {
