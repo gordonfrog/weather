@@ -2,8 +2,8 @@ package station;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.boot.builder.SpringApplicationBuilder;
 
 @SpringBootApplication(scanBasePackages = {"station"})
 public class StationApplication {
@@ -37,7 +37,7 @@ public class StationApplication {
 //    }
     
     public static void main(String[] args) {
-        new SpringApplicationBuilder(StationApplication.class).run(args);
+    	SpringApplication.run(StationApplication.class, args);
     }
 
 }
