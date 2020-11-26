@@ -205,7 +205,7 @@ public class ApiController {
 	 *             If there was an error reading the sensor file.
 	 */
 	private float readTempC(final String location) throws Exception {
-		final String line = FileUtils.readLines(new File(location)).get(1);
+		final String line = FileUtils.readLines(new File(location)).get(0);
 		final String tempEqual = line.split(" ")[9];
 		final int temp = Integer.parseInt(tempEqual.substring(2));
 		return temp / 1000f;
