@@ -13,6 +13,6 @@ public interface Station {
 
     List<Reading> readAllSensors();
 
-    File takePicture() throws IOException;
+    //File takePicture() throws IOException;
 
 }

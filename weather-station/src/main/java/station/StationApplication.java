@@ -9,11 +9,11 @@ import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.scheduling.annotation.Scheduled;
 import reading.Reading;
 import reading.StationReadings;
-import station.camera.CameraService;
+//import station.camera.CameraService;
 import station.sendservice.SendService;
 
 import java.util.List;
-import java.util.Optional;
+//import java.util.Optional;
 
 
 @SpringBootApplication(scanBasePackages = {"station"})
@@ -26,8 +26,8 @@ public class StationApplication {
     @Autowired
     private SendService sendService;
 
-    @Autowired
-    Optional<CameraService> cameraServiceOptional;
+//    @Autowired
+//    Optional<CameraService> cameraServiceOptional;
 
     public static void main(String[] args) {
         new SpringApplicationBuilder(StationApplication.class)

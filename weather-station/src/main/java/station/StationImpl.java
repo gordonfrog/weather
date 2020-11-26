@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import reading.Reading;
-import station.camera.Camera;
+//import station.camera.Camera;
 import station.sensor.Sensor;
 
 import java.io.File;
@@ -24,16 +24,23 @@ public class StationImpl implements Station {
 
     private List<Sensor> sensors;
 
-    private Camera camera;
+    //private Camera camera;
 
 
+//    @Autowired
+//    public StationImpl(@Value("${station.uuid:}") UUID uuid,
+//                       List<Sensor> sensors,
+//                       Camera camera) {
+//        this.uuid = uuid;
+//        this.sensors = sensors;
+//        this.camera = camera;
+//        logger.info("Started station: {}", uuid);
+//    }
     @Autowired
     public StationImpl(@Value("${station.uuid:}") UUID uuid,
-                       List<Sensor> sensors,
-                       Camera camera) {
+                       List<Sensor> sensors) {
         this.uuid = uuid;
         this.sensors = sensors;
-        this.camera = camera;
         logger.info("Started station: {}", uuid);
     }
 
@@ -51,10 +58,10 @@ public class StationImpl implements Station {
         return allReadings;
     }
 
-    @Override
-    public File takePicture() throws IOException {
-        return camera.takePicture();
-    }
+//    @Override
+//    public File takePicture() throws IOException {
+//        return camera.takePicture();
+//    }
 
     public UUID getUUID() {
         return uuid;

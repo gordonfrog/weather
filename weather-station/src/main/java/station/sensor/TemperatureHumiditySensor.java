@@ -19,7 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@ConditionalOnProperty(value = "station.temperature.enabled", havingValue = "true")
+//@ConditionalOnProperty(value = "station.temperature.enabled", havingValue = "true")
 public class TemperatureHumiditySensor implements Sensor {
     private static final Logger logger = LoggerFactory.getLogger(TemperatureHumiditySensor.class);
 
