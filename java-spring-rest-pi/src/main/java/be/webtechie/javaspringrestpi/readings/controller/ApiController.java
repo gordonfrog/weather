@@ -48,7 +48,7 @@ public class ApiController {
 	// Lock to synchronize on - http://stackoverflow.com/a/5861918/864369
 	private final Object LOCK = new Object();
 
-	@Value("${sensorsMasterDirectory:/sys/class/thermal/thermal_zone0/}")
+	@Value("${sensorsMasterDirectory:/sys/class/thermal/}")
 	//@Value("${sensorsMasterDirectory:/Users/gordonfrog/devices/}")
 	private String SENSORS_MASTER_DIRECTORY;
 
@@ -172,13 +172,13 @@ public class ApiController {
 				final String filename = file.getName();
 				logger.info("* filename: "+filename+" *");
 
-				if (!"temp".equals(filename)) {
+				if (!"thermal_zone0".equals(filename)) {
 					continue;
 				}
 
 				final String serialId = filename;
 				SERIAL_NAME_MAP.put(serialId, previousMap.containsKey(serialId) ? previousMap.get(serialId) : "");
-				final float tempC = readTempC(SENSORS_MASTER_DIRECTORY + "temp");
+				final float tempC = readTempC(SENSORS_MASTER_DIRECTORY + filename + "/temp");
 				logger.info("tempC: "+tempC);
 				final float tempF = ((tempC * (9 / 5.0f)) + 32);
 				logger.info("tempF: "+tempF);
